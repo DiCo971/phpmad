@@ -1,0 +1,65 @@
+#!/bin/bash
+
+#Couleur script
+rouge='\e[0;31m'
+neutre='\e[0;m'
+
+
+if [ $# -eq 0 ]
+then
+        source install.conf
+else
+        source $1
+fi
+
+
+
+echo -e "\n"
+echo -e "${rouge}Mise à jour de la liste des dépôts et des paquets${neutre}"
+
+apt-get -y update && apt-get -y upgrade
+
+
+
+
+echo -e "\n"
+echo -e "${rouge}Installation Apache${neutre}"
+
+apt-get install -y apache2
+
+/etc/init.d/apache2 start
+
+
+
+echo -e "\n"
+echo -e "${rouge}Installation Mysql${neutre}"
+
+export DEBIAN_FRONTEND="noninteractive"
+
+debconf-set-selections <<< "mysql-server mysql-server/root_password password $MYSQL_PASSWD"
+
+debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $MYSQL_PASSWD"
+
+apt-get install -y mysql-server
+
+/etc/init.d/mysql start
+
+
+echo -e "\n"
+echo -e "${rouge}Installation Phpmyadmin${neutre}"
+
+debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect $PMA_WEBSERVER"
+
+debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
+
+debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password $PMA_APP_USER"
+
+debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $MYSQL_PASSWD"
+
+debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $PMA_MYSQL_ADMIN_USER"
+
+apt-get install -y phpmyadmin
+
+echo -e "\n"
+echo -e "${rouge}Verifications${neutre}"
+source verifE3.sh
