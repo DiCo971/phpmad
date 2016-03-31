@@ -1,0 +1,31 @@
+Base de connaissances
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+apt-get install		// Installer un paquet
+	-y : Répondre automatiquement "OUI"
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+curl 			// Outil pour récupérer des données provenant du serveur web
+	--head : Option pour récupérer uniquement l’entête de la page (header)
+	-s : Option pour rendre la commande silencieuse (Pas de messages d’erreur,…)
+	head -1 : Permet de n’afficher que la première ligne du résultat
+	awk '{print $2}’ : Affiche la 2ème valeur de la chaine de caractère (le code HTTP)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+sed			// Outil permettant de manipuler des chaines de caractères
+	s/export APACHE_RUN_USER=\(.*\)/\1/g : Motif recherché
+	-n : Option permettant de ne pas afficher (ou uniquement sur demande)
+	p : Permet d’afficher seulement la valeur (demande explicite d’affichage)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+ps			// Affiche l’état des processus en cours
+	C : Option pour filtrer l’affichage en fonction du nom du service
+	o user= : Option permettant de n’afficher que la colonne correspondant aux utilisateurs qui lancent les processus
+	uniq : Permet d’éviter que les résultats soient affichés en double
+	grep : Afficher les lignes correspondant à un motif donné
+	-v : Option pour sélectionner les lignes ne correspondant pas au motif (on exclut le résultat root)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+debconf-set-selections	// Insérer de nouvelles valeurs par défaut dans la BDD de debconf
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
