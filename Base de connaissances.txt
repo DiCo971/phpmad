@@ -1,5 +1,11 @@
 Base de connaissances
 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+ssh		// Programme de connexion à distance
+	-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null : Désactiver la vérification de l'hote
+	vim +9 ~/.ssh/known_hosts : Acces au fichier et suppression (dd) de la ligne 9
+
 -----------------------------------------------------------------------------------------------------------------------------------------------
 apt-get install		// Installer un paquet
 	-y : Répondre automatiquement "OUI"
