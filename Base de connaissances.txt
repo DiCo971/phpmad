@@ -2,36 +2,42 @@ Base de connaissances
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
-ssh		// Programme de connexion Ã  distance
-	-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null : DÃ©sactiver la vÃ©rification de l'hote
+ssh		// Programme de connexion à distance
+	-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null : Désactiver la vérification de l'hote
 	vim +9 ~/.ssh/known_hosts : Acces au fichier et suppression (dd) de la ligne 9
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 apt-get install		// Installer un paquet
-	-y : RÃ©pondre automatiquement "OUI"
+	-y : Répondre automatiquement "OUI"
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
-curl 			// Outil pour rÃ©cupÃ©rer des donnÃ©es provenant du serveur web
-	--headÂ : Option pour rÃ©cupÃ©rer uniquement lâ€™entÃªte de la page (header)
-	-sÂ : Option pour rendre la commande silencieuse (Pas de messages dâ€™erreur,â€¦)
-	head -1Â : Permet de nâ€™afficher que la premiÃ¨re ligne du rÃ©sultat
-	awk '{print $2}â€™Â : Affiche la 2Ã¨me valeur de la chaine de caractÃ¨re (le code HTTP)
+mysql		// Utilitaire SQL
+	-u root : L’utilisateur MySQL
+	--password : Le mot de passe lié au compte root
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
-sed			// Outil permettant de manipuler des chaines de caractÃ¨res
-	s/export APACHE_RUN_USER=\(.*\)/\1/g : Motif recherchÃ©
-	-nÂ : Option permettant de ne pas afficher (ou uniquement sur demande)
-	pÂ : Permet dâ€™afficher seulement la valeur (demande explicite dâ€™affichage)
+curl 			// Outil pour récupérer des données provenant du serveur web
+	--head : Option pour récupérer uniquement l’entête de la page (header)
+	-s : Option pour rendre la commande silencieuse (Pas de messages d’erreur,…)
+	head -1 : Permet de n’afficher que la première ligne du résultat
+	awk '{print $2}’ : Affiche la 2ème valeur de la chaine de caractère (le code HTTP)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
-ps			// Affiche lâ€™Ã©tat des processus en cours
-	CÂ : Option pour filtrer lâ€™affichage en fonction du nom du service
-	o user=Â : Option permettant de nâ€™afficher que la colonne correspondant aux utilisateurs qui lancent les processus
-	uniqÂ : Permet dâ€™Ã©viter que les rÃ©sultats soient affichÃ©s en double
-	grepÂ : Afficher les lignes correspondant Ã  un motif donnÃ©
-	-vÂ : Option pour sÃ©lectionner les lignes ne correspondant pas au motif (on exclut le rÃ©sultat root)
+sed			// Outil permettant de manipuler des chaines de caractères
+	s/export APACHE_RUN_USER=\(.*\)/\1/g : Motif recherché
+	-n : Option permettant de ne pas afficher (ou uniquement sur demande)
+	p : Permet d’afficher seulement la valeur (demande explicite d’affichage)
+	-i: Option permettant d'éditer les fichiers via des copies temporaires 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
-debconf-set-selections	// InsÃ©rer de nouvelles valeurs par dÃ©faut dans la BDD de debconf
+ps			// Affiche l’état des processus en cours
+	C : Option pour filtrer l’affichage en fonction du nom du service
+	o user= : Option permettant de n’afficher que la colonne correspondant aux utilisateurs qui lancent les processus
+	uniq : Permet d’éviter que les résultats soient affichés en double
+	grep : Afficher les lignes correspondant à un motif donné
+	-v : Option pour sélectionner les lignes ne correspondant pas au motif (on exclut le résultat root)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+debconf-set-selections	// Insérer de nouvelles valeurs par défaut dans la BDD de debconf
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
