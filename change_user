@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#apt-get -y update
+#apt-get -y install vim && apt-get -y install curl
+#apt-get -y install sudo
+#apt-get -y install whois
+
+user=carl
+group=groupcarl
+mdp=$(mkpasswd $user)
+groupadd -g 500 $group
+useradd $user --password $mdp -s /bin/bash --uid 500 --gid 500
+usermod -aG sudo $user
+
+user2=beth
+group2=groupbeth
+mdp2=$(mkpasswd $user2)
+groupadd -g 501 $group2
+useradd $user2 --password $mdp2 -s /bin/bash --uid 501 --gid 501
+usermod -aG sudo $user2
+
+/etc/init.d/apache2 stop
+/etc/init.d/mysql stop
+
+sed -i 's/\(export APACHE_RUN_USER=\).*/\export APACHE_RUN_USER=carl/' /etc/apache2/envvars
+sed -i 's/\(export APACHE_RUN_GROUP=\).*/\export APACHE_RUN_GROUP=groupcarl/' /etc/apache2/envvars
+
+sed -i 's/\(user\t\t= \).*/user\t\t= beth/' /etc/mysql/my.cnf
+
+/etc/init.d/apache2 start
+/etc/init.d/mysql start
+

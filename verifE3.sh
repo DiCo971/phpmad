@@ -2,6 +2,7 @@
 
 hostname=$(hostname)
 
+echo "michonne" > /var/www/html/ping_me
 if [ "$(curl -s http://127.0.0.1/ping_me)" = "michonne" ];
 then
 	http_state=OK;

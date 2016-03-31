@@ -13,22 +13,18 @@ else
 fi
 
 
-
 echo -e "\n"
 echo -e "${rouge}Mise à jour de la liste des dépôts et des paquets${neutre}"
 
-apt-get -y update && apt-get -y upgrade
-
-
+sudo apt-get -y update && apt-get -y upgrade
 
 
 echo -e "\n"
 echo -e "${rouge}Installation Apache${neutre}"
 
-apt-get install -y apache2
+sudo apt-get install -y apache2
 
-/etc/init.d/apache2 start
-
+sudo /etc/init.d/apache2 start
 
 
 echo -e "\n"
@@ -40,9 +36,9 @@ debconf-set-selections <<< "mysql-server mysql-server/root_password password $MY
 
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $MYSQL_PASSWD"
 
-apt-get install -y mysql-server
+sudo apt-get install -y mysql-server
 
-/etc/init.d/mysql start
+sudo /etc/init.d/mysql start
 
 
 echo -e "\n"
@@ -58,7 +54,8 @@ debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $MYS
 
 debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $PMA_MYSQL_ADMIN_USER"
 
-apt-get install -y phpmyadmin
+sudo apt-get install -y phpmyadmin
+
 
 echo -e "\n"
 echo -e "${rouge}Verifications${neutre}"
