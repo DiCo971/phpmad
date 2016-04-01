@@ -36,6 +36,7 @@ ps			// Affiche l’état des processus en cours
 	uniq : Permet d’éviter que les résultats soient affichés en double
 	grep : Afficher les lignes correspondant à un motif donné
 	-v : Option pour sélectionner les lignes ne correspondant pas au motif (on exclut le résultat root)
+	-aux : -u Afficher colonne utilisateur -a:Affiche les processus des autres utilisateurs x:Affiche les processus qui non 	pas de terminal de controle
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 export			//Initialise une variable shell
