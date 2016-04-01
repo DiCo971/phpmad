@@ -38,7 +38,12 @@ ps			// Affiche l’état des processus en cours
 	-v : Option pour sélectionner les lignes ne correspondant pas au motif (on exclut le résultat root)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
+export			//Initialise une variable shell
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
 debconf-set-selections	// Insérer de nouvelles valeurs par défaut dans la BDD de debconf
+		Chaque ligne est de cette forme : <propriétaire> <nom de la question> <type de la question> <valeur>
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 whois			//La commande 'mkpasswd' est dans le package "whois" permet de haché les mot de passe
@@ -63,5 +68,15 @@ usermod			//Modifier un compte utilisateur/ Mettre utilisateur spécifié dans u
 -----------------------------------------------------------------------------------------------------------------------------------------------
 chown 			//Modifier  le  propriétaire  et  le  groupe  d'un fichier.
 			-R : récursif
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+echo "michonne" > /var/www/html/ping_me		//Permet de créer le fichier ping_me dans /var/www/html et d'ajouter le texte 							"michonne"
+-----------------------------------------------------------------------------------------------------------------------------------------------
+echo "show databases;" | mysql -u root --password=glenn	    //Permet d'effectuer la requete show database; sur le serveur mysql 							avec l'utilisateur root et mp glenn
+-----------------------------------------------------------------------------------------------------------------------------------------------
+if [ -z "$mysql_state" ]		// Permet de tester si la variable ne contient rien
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+if [[ "$code" =~ $regex_php ]]		//Permet de tester si valeur de la variable code correspond à la regex
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
