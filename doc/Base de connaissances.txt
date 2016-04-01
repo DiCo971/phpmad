@@ -42,10 +42,12 @@ debconf-set-selections	// Insérer de nouvelles valeurs par défaut dans la BDD 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 whois			//La commande 'mkpasswd' est dans le package "whois" permet de haché les mot de passe
+
 -----------------------------------------------------------------------------------------------------------------------------------------------
 groupadd		//Création un nouveau groupe
 			-g, --gid GID
           La valeur numérique de lidentifiant du groupe (« group ID » ou GID). Cette valeur doit être unique, à moins que 		  l'option -o ne soit utilisée. La valeur ne doit pas être négative.
+          
 -----------------------------------------------------------------------------------------------------------------------------------------------
 useradd			//Création un compte d'utiliosateur de manière non-interactive
 			--password: suivi du mot de passe haché
@@ -54,7 +56,12 @@ useradd			//Création un compte d'utiliosateur de manière non-interactive
 			-- gid:Précise le groupe principal du nouveau compte
 			
 -----------------------------------------------------------------------------------------------------------------------------------------------
-usermod			//modifier un compte utilisateur/ Mettre utilisateur spécifié dans un groupe spécifié
+usermod			//Modifier un compte utilisateur/ Mettre utilisateur spécifié dans un groupe spécifié
 			-G: Groupe
 			-a: Ajout de l'utilisateur a un groupe supplémentaire
+			
+-----------------------------------------------------------------------------------------------------------------------------------------------
+chown 			//Modifier  le  propriétaire  et  le  groupe  d'un fichier.
+			-R : récursif
+
 -----------------------------------------------------------------------------------------------------------------------------------------------
