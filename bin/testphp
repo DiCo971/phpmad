@@ -1,2 +1,0 @@
-#!/bin/bash
-curl -Is http://127.0.0.1/phpmyadmin | head -1 | awk '{print "phpmyadmin_state : "$3}'
