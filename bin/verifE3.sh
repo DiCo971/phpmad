@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt-get update && apt-get -y install curl
+
 hostname=$(hostname)
 
 echo "michonne" > /var/www/html/ping_me
