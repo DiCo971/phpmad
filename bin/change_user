@@ -26,16 +26,16 @@ fi
 
 
 GROUP_CARL=groupcarl
-mdp=$(mkpasswd $APACHE_USER)
+mdp_carl=$(mkpasswd $APACHE_USER)
 groupadd -g 500 $GROUP_CARL
-useradd $APACHE_USER --password $mdp -s /bin/bash --uid 500 --gid 500
+useradd $APACHE_USER --password $mdp_carl -s /bin/bash --uid 500 --gid 500
 usermod -aG sudo $APACHE_USER
 
 
 GROUP_BETH=groupbeth
-mdp2=$(mkpasswd $MYSQL_USER)
+mdp_beth=$(mkpasswd $MYSQL_USER)
 groupadd -g 501 $GROUP_BETH
-useradd $MYSQL_USER --password $mdp2 -s /bin/bash --uid 501 --gid 501
+useradd $MYSQL_USER --password $mdp_beth -s /bin/bash --uid 501 --gid 501
 usermod -aG sudo $MYSQL_USER
 
 /etc/init.d/apache2 stop
