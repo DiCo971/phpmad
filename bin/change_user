@@ -58,8 +58,12 @@ echo -e "${VERT}Test de vérifications${neutre}"
 
 echo -e "\n"
 echo -e "${VERT}Liste des processus Apache${neutre}"
-ps -aux | grep apache
+ps -aux | grep apache | grep -v root
+
 echo -e "\n"
 echo -e "${VERT}Liste des processus Mysql${neutre}"
-ps -aux | grep mysql
+ps -aux | grep mysql | grep -v root
 
+echo -e "\n"
+echo -e "${VERT}Verifications${neutre}"
+source verifE3.sh

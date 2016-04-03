@@ -1,10 +1,10 @@
 #!/bin/bash
 
-apt-get update && apt-get -y install curl
-
 hostname=$(hostname)
 
-echo "michonne" > /var/www/html/ping_me
+repertoire=$(sed -n 's/DocumentRoot//gp' /etc/apache2/sites-available/000-default.conf)
+
+echo "michonne" > $repertoire/ping_me
 if [ "$(curl -s http://127.0.0.1/ping_me)" = "michonne" ];
 then
 	http_state=OK;
